@@ -1,0 +1,21 @@
+<div class="container">
+
+    <!-- navbar component -->
+    <div>
+        <acme-navbar creation-date="main.creationDate"></acme-navbar>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Current Ads</div>
+        <div class="panel-body">
+
+            <div class="alert alert-warning" ng-if="!user.SignedIn">Please, sign in for adding your advertisement</div>
+
+            <ul ng-repeat="ad in ads">
+                <li>{{ ad.title }} - {{ ad.body }} - {{ ad.price }}</li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>

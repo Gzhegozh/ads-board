@@ -21,11 +21,19 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
+    function NavbarController($scope, $rootScope, $auth) {
+
       var vm = this;
 
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+      $scope.submitLogin=function(loginForm){
+        console.log(loginForm);
+        $auth.submitLogin(loginForm);
+      };
+
+      $rootScope.$on('auth:login-success', function(ev, user) {
+        alert('Welcome ', user.email);
+      });
+
     }
   }
 

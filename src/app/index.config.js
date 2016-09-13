@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('angularRails')
-    .config(config);
+      .module('angularRails')
+      .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig) {
+  function config($logProvider, toastrConfig, $authProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -16,6 +16,10 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
+    $authProvider.configure({
+      apiUrl: 'http://localhost:3030/api'
+    });
   }
 
 })();

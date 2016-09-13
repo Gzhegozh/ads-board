@@ -3,8 +3,6 @@
   'use strict';
 
   angular
-    .module('angularRails')
-    .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .module('angularRails');
 
 })();

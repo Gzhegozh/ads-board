@@ -3,16 +3,22 @@
 
   angular
     .module('angularRails')
-    .config(routerConfig);
+    .config(routerConfig)
+      .factory('Ad', ['railsResourceFactory', function(railsResourceFactory) {
+          return railsResourceFactory({
+              url: '/api/ads',
+              name: 'ad'
+          });
+      }]);
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      .state('ads', {
+          url: '/ads',
+          templateUrl: 'app/ads/ads.html',
+          controller: 'AdsController',
+          controllerAs: 'ads'
       });
 
     $urlRouterProvider.otherwise('/');
