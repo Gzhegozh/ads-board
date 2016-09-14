@@ -19,6 +19,12 @@
           templateUrl: 'app/ads/ads.html',
           controller: 'AdsController',
           controllerAs: 'ads'
+      })
+      .state('users', {
+        url: '/sign_up',
+        templateUrl: 'app/users/signUp.html',
+        controller: 'UsersController',
+        controllerAs: 'users'
       });
 
     $urlRouterProvider.otherwise('/');

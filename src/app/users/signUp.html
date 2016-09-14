@@ -1,0 +1,36 @@
+<div class="container">
+
+  <!-- navbar component -->
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Sign Up</div>
+    <div class="panel-body">
+
+      <div class="col-lg-6">
+      <form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name="password" ng-model="registrationForm.password" required="required" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+          <label>Password Confirmation</label>
+          <input type="password" name="password_confirmation" ng-model="registrationForm.password_confirmation" required="required" class="form-control"/>
+        </div>
+
+        <button type="submit" class="btn btn-default">Register</button>
+      </form>
+        </div>
+
+    </div>
+  </div>
+
+</div>

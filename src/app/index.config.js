@@ -18,7 +18,8 @@
     toastrConfig.progressBar = true;
 
     $authProvider.configure({
-      apiUrl: 'http://localhost:3030/api'
+      apiUrl: 'http://localhost:3030/api',
+      storage: 'localStorage'
     });
   }
 

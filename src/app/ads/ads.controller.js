@@ -14,6 +14,10 @@
                 });
             };
 
+            $scope.submitLogin=function(loginForm){
+              $auth.submitLogin(loginForm);
+            };
+
             // when the user logs in, fetch the posts
             $rootScope.$on('auth:login-success', function(ev, user) {
                 ad_query();

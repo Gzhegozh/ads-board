@@ -1,6 +1,6 @@
 class Api::AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_current_user
 
   # GET /ads
   # GET /ads.json

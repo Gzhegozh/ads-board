@@ -9,8 +9,21 @@
         <div class="panel-heading">Current Ads</div>
         <div class="panel-body">
 
-            <div class="alert alert-warning" ng-if="!user.SignedIn">Please, sign in for adding your advertisement</div>
+          <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}" ng-if="!user.signedIn">
+            <div class="col-lg-3">
+              <input type="email" class="form-control" id="email" ng-model="loginForm.email" placeholder="Email">
+            </div>
+            <div class="col-lg-3">
+              <input type="password" class="form-control" id="password" ng-model="loginForm.password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-default">Sign In</button>
+            <a href="#/sign_up" ng-if="!user.signedIn">Sign Up</a>
+          </form>
 
+          <p ng-if="user.signedIn">Hi, {{ user.email }}</p>
+          <button class="btn btn-default" ng-click="signOut()" ng-if="user.signedIn">Sign out</button>
+          <br>
+            <div class="alert alert-warning" ng-if="!user.signedIn">Please, sign in for adding your advertisement</div>
             <ul ng-repeat="ad in ads">
                 <li>{{ ad.title }} - {{ ad.body }} - {{ ad.price }}</li>
             </ul>

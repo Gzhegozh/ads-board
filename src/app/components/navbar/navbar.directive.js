@@ -11,7 +11,6 @@
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -24,15 +23,6 @@
     function NavbarController($scope, $rootScope, $auth) {
 
       var vm = this;
-
-      $scope.submitLogin=function(loginForm){
-        console.log(loginForm);
-        $auth.submitLogin(loginForm);
-      };
-
-      $rootScope.$on('auth:login-success', function(ev, user) {
-        alert('Welcome ', user.email);
-      });
 
     }
   }
