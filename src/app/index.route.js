@@ -15,10 +15,20 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('ads', {
-          url: '/ads',
-          templateUrl: 'app/ads/ads.html',
-          controller: 'AdsController',
-          controllerAs: 'ads'
+        url: '/ads',
+        templateUrl: 'app/ads/ads.html',
+        controller: 'AdsController',
+        controllerAs: 'ads'
+      })
+      .state('ads.new', {
+        url: '/new',
+        views : {
+          '@' : {
+            templateUrl: "app/ads/newAd.html"
+          }
+        },
+        controller: 'AdsController',
+        controllerAs: 'ads'
       })
       .state('users', {
         url: '/sign_up',

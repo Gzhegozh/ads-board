@@ -1,0 +1,31 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+
+  <!-- navbar component -->
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Create advertisement</div>
+      <div class="panel-body">
+        <div class="col-lg-6">
+          <form name="newAdForm" novalidate ng-controller="AdsController" ng-submit="newAd()" >
+
+            <label>Title</label>
+            <input type="text" name="Title" placeholder="Enter Title" ng-model="title" class="form-control" required/>
+            <br>
+            <label>Content</label>
+            <textarea name="Body" placeholder="Content" ng-model="body"  class="form-control" required></textarea>
+            <br>
+            <label>Price</label>
+            <input type="text" name="Price" placeholder="Enter Price" ng-model="price" class="form-control" required/>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Create" ng-disabled="newAdForm.$invalid">
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,6 +27,11 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
   }
 }
 
+.glyphicon {
+  color: #31b0d5;
+  font-size: 2.0em;
+}
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

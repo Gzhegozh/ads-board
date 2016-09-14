@@ -42,6 +42,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'cancancan'
   gem 'rolify'
+  gem 'angular_rails_csrf'
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'meta_request'

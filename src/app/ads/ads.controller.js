@@ -11,6 +11,7 @@
             var ad_query = function(){
                 Ad.query().then(function(ads){
                     $scope.ads = ads;
+                    console.log($scope.ads );
                 });
             };
 
@@ -27,6 +28,20 @@
             $rootScope.$on('auth:logout-success', function(ev) {
                 $scope.ads = null;
             });
+
+            $scope.newAd = function(){
+              $scope.Ad = new Ad();
+              if(!$scope.title || $scope.title === '') { return; }
+              if(!$scope.body || $scope.body === '') { return; }
+              if(!$scope.price || $scope.price === '') { return; }
+
+              $scope.Ad.title = $scope.title;
+              $scope.Ad.body = $scope.body;
+              $scope.Ad.price = $scope.price;
+              $scope.Ad.user_id = $auth.user.id;
+
+              $scope.Ad.save();
+            };
 
             // will get a "401 Unauthorized" if the user is not authenticated
             ad_query();
