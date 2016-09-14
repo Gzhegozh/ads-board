@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :ads
+    resources :categories
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

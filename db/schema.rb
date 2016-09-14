@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914095800) do
+ActiveRecord::Schema.define(version: 20160914114602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ads", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "body",       null: false
-    t.string   "price",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",                                null: false
+    t.string   "body",                                 null: false
+    t.string   "price",                                null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "user_id"
+    t.string   "status",     default: "on_moderation", null: false
   end
 
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
@@ -35,6 +36,17 @@ ActiveRecord::Schema.define(version: 20160914095800) do
   create_table "categories", force: :cascade do |t|
     t.string "name", default: "Different", null: false
   end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",           default: "email", null: false
@@ -54,5 +66,12 @@ ActiveRecord::Schema.define(version: 20160914095800) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
 end
