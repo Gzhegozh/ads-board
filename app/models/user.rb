@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
          :trackable, :validatable,
          :omniauthable
   include DeviseTokenAuth::Concerns::User
+
+  has_many :ads
 end
