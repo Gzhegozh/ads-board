@@ -20,6 +20,11 @@
             <label>Price</label>
             <input type="text" name="Price" placeholder="Enter Price" ng-model="price" class="form-control" required/>
             <br>
+            <label>Pick categories</label>
+            <div>
+              <category-selectize></category-selectize>
+            </div>
+            <br>
             <input type="submit" class="btn btn-primary" value="Create" ng-disabled="newAdForm.$invalid">
           </form>
         </div>

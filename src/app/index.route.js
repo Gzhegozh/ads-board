@@ -5,10 +5,16 @@
     .module('angularRails')
     .config(routerConfig)
       .factory('Ad', ['railsResourceFactory', function(railsResourceFactory) {
-          return railsResourceFactory({
-              url: '/api/ads',
-              name: 'ad'
-          });
+        return railsResourceFactory({
+          url: '/api/ads',
+          name: 'ad'
+        });
+      }])
+      .factory('Category', ['railsResourceFactory', function(railsResourceFactory) {
+        return railsResourceFactory({
+          url: '/api/categories',
+          name: 'category'
+        });
       }]);
 
   /** @ngInject */

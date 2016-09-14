@@ -24,7 +24,6 @@
           <button class="btn btn-default" ng-click="signOut()" ng-if="user.signedIn">Sign out</button>
           <br>
             <div class="alert alert-warning" ng-if="!user.signedIn">Please, sign in for adding your advertisement</div>
-
           <div id="postlist" ng-repeat="ad in ads">
             <div class="panel">
               <div class="panel-heading">
@@ -35,7 +34,7 @@
                     </div>
                     <div class="col-sm-3">
                       <h4 class="pull-right">
-                        <small><em>{{ ad.createdAt.slice(0,10) }}<br>{{ ad.createdAt.slice(11,16) }}</em></small>
+                        <small><em>{{ ad.user.email }} at {{ ad.createdAt.slice(0,10) }}<br>{{ ad.createdAt.slice(11,16) }}</em></small>
                       </h4>
                     </div>
                   </div>

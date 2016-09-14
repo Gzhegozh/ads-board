@@ -13,6 +13,7 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.5.3",
+    "angular-selectize2": "^3.0.1",
     "angularjs-rails-resource": "^2.2.0",
     "ng-token-auth": "^0.0.29",
     "angular-cookies": "^1.5.8",

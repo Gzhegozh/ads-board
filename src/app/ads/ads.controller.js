@@ -11,7 +11,6 @@
             var ad_query = function(){
                 Ad.query().then(function(ads){
                     $scope.ads = ads;
-                    console.log($scope.ads );
                 });
             };
 
