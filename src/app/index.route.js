@@ -22,19 +22,26 @@
     $stateProvider
       .state('ads', {
         url: '/ads',
-        templateUrl: 'app/ads/ads.html',
-        controller: 'AdsController',
-        controllerAs: 'ads'
+        templateUrl: 'app/ads/index.html',
+        controller: 'AdsIndexController'
       })
       .state('ads.new', {
         url: '/new',
         views : {
           '@' : {
-            templateUrl: "app/ads/newAd.html"
+            templateUrl: "app/ads/new.html"
           }
         },
-        controller: 'AdsController',
-        controllerAs: 'ads'
+        controller: 'AdsNewController'
+      })
+      .state('ads.show', {
+        url: '/:id',
+        views : {
+          '@' : {
+            templateUrl: "app/ads/show.html"
+          }
+        },
+        controller: 'AdsShowController'
       })
       .state('users', {
         url: '/sign_up',

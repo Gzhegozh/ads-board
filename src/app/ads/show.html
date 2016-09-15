@@ -1,0 +1,21 @@
+<div ng-controller="AdsShowController" class="container" xmlns="http://www.w3.org/1999/html">
+
+  <!-- navbar component -->
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><b>{{ad.title}}</b></div>
+    <div class="panel-body">
+      <div class="col-lg-6">
+        <p>{{ad.body}}</p>
+        <br>
+        <label>Price:</label>
+        <p>{{ad.price}}</p>
+        <a href="#/ads">Back...</a>
+      </div>
+    </div>
+  </div>
+
+</div>
