@@ -9,6 +9,8 @@
 
         Ad.get($stateParams.id).then(function(ad){
           $scope.ad = ad;
+        }).catch(function(){
+          $location.path("/ads");
         });
       };
 

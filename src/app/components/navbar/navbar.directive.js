@@ -20,7 +20,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController($scope, $rootScope, $auth) {
+    function NavbarController($scope, $rootScope, $auth, CurrentUser) {
 
     }
   }

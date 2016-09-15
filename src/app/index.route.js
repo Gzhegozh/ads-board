@@ -41,6 +41,15 @@
             templateUrl: "app/ads/new.html"
           }
         },
+        resolve: {
+          "check": function($location, CurrentUser){
+            CurrentUser.query().then(function(user){
+              if (!user) {
+                $location.path('/ads');
+              }
+            });
+          }
+        },
         controller: 'AdsNewController'
       })
       .state('ads.show', {
@@ -59,6 +68,15 @@
             templateUrl: "app/ads/my_ads.html"
           }
         },
+        resolve: {
+          "check": function($location, CurrentUser){
+            CurrentUser.query().then(function(user){
+              if (!user) {
+                $location.path('/ads');
+              }
+            });
+          }
+        },
         controller: 'AdsIndexController'
       })
       .state('ads.edit', {
@@ -66,6 +84,15 @@
         views : {
           '@' : {
             templateUrl: "app/ads/edit.html"
+          }
+        },
+        resolve: {
+          "check": function($location, CurrentUser){
+            CurrentUser.query().then(function(user){
+              if (!user) {
+                $location.path('/ads');
+              }
+            });
           }
         },
         controller: 'AdsEditController'
