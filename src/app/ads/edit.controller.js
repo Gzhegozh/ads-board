@@ -3,7 +3,7 @@
 
   angular
     .module('angularRails')
-    .controller('AdsEditController', function($rootScope, $scope, $state, $stateParams, $auth, $location, Ad) {
+    .controller('AdsEditController', function($rootScope, $scope, $state, $stateParams, $auth, $location, CurrentUser, Ad) {
 
       $scope.update = function(){
         if ($scope.editAdForm.$valid){
@@ -29,7 +29,14 @@
 
       var get_current_ad = function(){
         Ad.get($stateParams.id).then(function(ad){
-          $scope.ad = ad;
+          CurrentUser.query().then(function(user){
+            if (user.id === ad.user.id){
+              $scope.ad = ad;
+            }
+            else{
+              $location.path("/ads");
+            }
+          });
         });
       };
 
