@@ -15,6 +15,12 @@
           url: '/api/categories',
           name: 'category'
         });
+      }])
+      .factory('CurrentUser', ['railsResourceFactory', function(railsResourceFactory) {
+        return railsResourceFactory({
+          url: '/api/get_current_user',
+          name: 'current_user'
+        });
       }]);
 
   /** @ngInject */
@@ -35,13 +41,22 @@
         controller: 'AdsNewController'
       })
       .state('ads.show', {
-        url: '/:id',
+        url: '/{id:[1-9][0-9]+}',
         views : {
           '@' : {
             templateUrl: "app/ads/show.html"
           }
         },
         controller: 'AdsShowController'
+      })
+      .state('ads.my_ads', {
+        url: '/my_ads',
+        views : {
+          '@' : {
+            templateUrl: "app/ads/my_ads.html"
+          }
+        },
+        controller: 'MyIndexController'
       })
       .state('users', {
         url: '/sign_up',

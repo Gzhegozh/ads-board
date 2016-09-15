@@ -6,13 +6,27 @@
   </div>
 
   <div class="panel panel-default">
-    <div class="panel-heading"><b>{{ad.title}}</b></div>
+    <div class="panel-heading"><b>{{ad.title}}</b><b> by {{ad.user.email}}</b></div>
     <div class="panel-body">
       <div class="col-lg-6">
         <p>{{ad.body}}</p>
         <br>
         <label>Price:</label>
         <p>{{ad.price}}</p>
+        <label>Categories:</label>
+        <br>
+        <i ng-repeat="category in ad.categories">{{category.name}}{{$last ? '' : ', '}}</i>
+        <br>
+        <br>
+        <label>Status:</label>
+        <p>{{ad.status}}</p>
+        <br>
+        <label>Created At:</label>
+        <p>{{ ad.createdAt.slice(0,10) }} {{ ad.createdAt.slice(11,16) }}</p>
+        <br>
+        <label>Last Updated:</label>
+        <p>{{ ad.updatedAt.slice(0,10) }} {{ ad.updatedAt.slice(11,16) }}</p>
+        <br>
         <a href="#/ads">Back...</a>
       </div>
     </div>

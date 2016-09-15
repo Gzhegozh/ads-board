@@ -22,8 +22,6 @@
     /** @ngInject */
     function NavbarController($scope, $rootScope, $auth) {
 
-      var vm = this;
-
     }
   }
 

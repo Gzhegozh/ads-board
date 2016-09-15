@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :ads
     resources :categories
+
+    get '/get_current_user' => 'users#get_current_user'
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
