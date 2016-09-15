@@ -7,7 +7,10 @@
       .factory('Ad', ['railsResourceFactory', function(railsResourceFactory) {
         return railsResourceFactory({
           url: '/api/ads',
-          name: 'ad'
+          name: 'ad',
+          update: {
+            method: 'PUT'
+          }
         });
       }])
       .factory('Category', ['railsResourceFactory', function(railsResourceFactory) {
@@ -56,7 +59,16 @@
             templateUrl: "app/ads/my_ads.html"
           }
         },
-        controller: 'MyIndexController'
+        controller: 'AdsIndexController'
+      })
+      .state('ads.edit', {
+        url: '/{id:[1-9][0-9]+}/edit',
+        views : {
+          '@' : {
+            templateUrl: "app/ads/edit.html"
+          }
+        },
+        controller: 'AdsEditController'
       })
       .state('users', {
         url: '/sign_up',

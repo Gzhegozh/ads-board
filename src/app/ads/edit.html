@@ -1,0 +1,37 @@
+<div class="container">
+
+  <!-- navbar component -->
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Edit advertisement</div>
+    <div class="panel-body">
+      <div class="col-lg-6">
+        <form name="editAdForm" novalidate ng-controller="AdsEditController" ng-submit="update()" >
+
+          <label>Title</label>
+          <input type="text" name="Title" placeholder="Enter Title" ng-model="ad.title" class="form-control" required />
+          <br>
+          <label>Content</label>
+          <textarea name="Body" placeholder="Content" ng-model="ad.body"  class="form-control" required></textarea>
+          <br>
+          <label>Price</label>
+          <input type="text" name="Price" placeholder="Enter Price" ng-model="ad.price" class="form-control" required/>
+          <br>
+          <label>Pick categories</label>
+          <div>
+            <category-selectize></category-selectize>
+          </div>
+          <br>
+          <input type="submit" class="btn btn-primary" value="Update" ng-disabled="editAdForm.$invalid">
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>

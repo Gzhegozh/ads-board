@@ -18,7 +18,11 @@
         $scope.Ad.category_attributes =
           ($scope.$$childHead.categories === undefined) ? '' : $scope.$$childHead.categories.map(Number);
 
-        $scope.Ad.save();
+        $scope.Ad.save().then(function(){
+          $location.path("/ads/my_ads");
+        }).catch(function(){
+          alert("Operation failed");
+        });
 
         $location.path('/ads');
       };

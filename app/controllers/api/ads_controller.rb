@@ -40,6 +40,8 @@ class Api::AdsController < ApplicationController
   # PATCH/PUT /ads/1
   # PATCH/PUT /ads/1.json
   def update
+    @ad.category.destroy_all
+    @ad.category << Category.find(params[:ad][:category_attributes])
     respond_to do |format|
       if @ad.update(ad_params)
         format.json { render :show, status: :ok}
