@@ -1,7 +1,6 @@
 class Api::AdsController < ApplicationController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_current_user
-
+  before_action :authenticate_current_user, except: [:show, :index]
   # GET /ads
   # GET /ads.json
   def index
@@ -25,7 +24,9 @@ class Api::AdsController < ApplicationController
   # POST /ads
   # POST /ads.json
   def create
+
     @ad = Ad.new(ad_params)
+    @ad.category = Category.find params[:ad][:category_attributes]
 
     respond_to do |format|
       if @ad.save

@@ -32,6 +32,9 @@
                     <div class="col-sm-9">
                       <h3 class="pull-left">{{ ad.title }}</h3>
                     </div>
+                    <div class="col-sm-9">
+                      <i class="pull-left" ng-repeat="category in ad.categories">{{category.name}}{{$last ? '' : ', '}}</i>
+                    </div>
                     <div class="col-sm-3">
                       <h4 class="pull-right">
                         <small><em>{{ ad.user.email }} at {{ ad.createdAt.slice(0,10) }}<br>{{ ad.createdAt.slice(11,16) }}</em></small>

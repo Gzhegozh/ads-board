@@ -11,6 +11,7 @@
             var ad_query = function(){
                 Ad.query().then(function(ads){
                     $scope.ads = ads;
+                    console.log($scope.ads);
                 });
             };
 
@@ -38,6 +39,7 @@
               $scope.Ad.body = $scope.body;
               $scope.Ad.price = $scope.price;
               $scope.Ad.user_id = $auth.user.id;
+              $scope.Ad.category_attributes = $scope.$$childHead.categories.map(Number);
 
               $scope.Ad.save();
             };

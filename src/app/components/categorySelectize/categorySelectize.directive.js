@@ -22,20 +22,17 @@
     /** @ngInject */
     function SelectizeController($scope, $rootScope, $auth, Category) {
 
-      $scope.myModel = 1;
+      $scope.Model = 1;
+
       var category_query = function(){
         Category.query().then(function(categories){
-          $scope.categories = categories;
+          $scope.Options = categories;
         });
       };
 
       category_query();
 
-      $scope.myOptions = [
-        $scope.categories
-      ];
-
-      $scope.myConfig = {
+      $scope.Config = {
         create: true,
         valueField: 'id',
         labelField: 'name',
