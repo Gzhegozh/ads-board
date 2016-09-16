@@ -53,7 +53,7 @@
         controller: 'AdsNewController'
       })
       .state('ads.show', {
-        url: '/{id:[1-9][0-9]+}',
+        url: '/{id:[0-9]+}',
         views : {
           '@' : {
             templateUrl: "app/ads/show.html"
@@ -80,7 +80,7 @@
         controller: 'AdsIndexController'
       })
       .state('ads.edit', {
-        url: '/{id:[1-9][0-9]+}/edit',
+        url: '/{id:[0-9]+}/edit',
         views : {
           '@' : {
             templateUrl: "app/ads/edit.html"
@@ -104,7 +104,7 @@
         controllerAs: 'users'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/ads');
   }
 
 })();

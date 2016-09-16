@@ -43,6 +43,8 @@ group :development, :test do
   gem 'cancancan'
   gem 'rolify'
   gem 'angular_rails_csrf'
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'meta_request'
