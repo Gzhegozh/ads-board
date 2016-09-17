@@ -5,7 +5,7 @@ class Api::AdsController < ApiController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all
+    @ads = Ad.all.includes(:category, :user)
   end
 
   # GET /ads/1

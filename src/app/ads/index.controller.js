@@ -11,6 +11,10 @@
               });
           };
 
+          $scope.authenticate = function(provider) {
+            $auth.authenticate(provider);
+          };
+
           $scope.submitLogin=function(loginForm){
             $auth.submitLogin(loginForm);
           };

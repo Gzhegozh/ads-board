@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     get '/get_current_user' => 'users#get_current_user'
   end
 
+  get 'omniauth/:provider' => 'devise_token_auth/omniauth_callbacks#redirect_callbacks'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

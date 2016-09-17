@@ -20,8 +20,18 @@
     $authProvider.configure({
       apiUrl: 'http://localhost:3030/api',
       storage: 'cookies',
-      authProviderPaths: {
-        facebook: 'api/auth/facebook'
+      facebook: {
+        clientId: '1102903999763763',
+        name: 'facebook',
+        url: '/auth/facebook',
+        authorizationEndpoint: 'https://www.facebook.com/v2.5/dialog/oauth',
+        redirectUri: window.location.origin + '/',
+        requiredUrlParams: ['display', 'scope'],
+        scope: ['email'],
+        scopeDelimiter: ',',
+        display: 'popup',
+        oauthType: '2.0',
+        popupOptions: { width: 580, height: 400 }
       }
     });
   }
