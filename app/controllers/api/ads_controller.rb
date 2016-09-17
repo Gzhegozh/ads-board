@@ -1,6 +1,7 @@
 class Api::AdsController < ApiController
   before_action :set_ad, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_current_user, except: [:show, :index]
+  load_and_authorize_resource
   # GET /ads
   # GET /ads.json
   def index

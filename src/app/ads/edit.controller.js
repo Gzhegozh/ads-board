@@ -9,8 +9,6 @@
         if ($scope.editAdForm.$valid){
           Ad.get($stateParams.id).then(function(ad){
 
-            console.log($scope);
-
             ad.title = $scope.ad.title;
             ad.body = $scope.ad.body;
             ad.price = $scope.ad.price;
@@ -34,6 +32,7 @@
               $scope.ad = ad;
             }
             else{
+              $rootScope.message = 'You haven\'t rights for this operation';
               $location.path("/ads");
             }
           });

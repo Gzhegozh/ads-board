@@ -20,9 +20,8 @@
     return directive;
 
     /** @ngInject */
-    function SelectizeController($scope, $rootScope, $auth, Category) {
+    function SelectizeController($scope, $rootScope, $auth, $stateParams, Ad, Category) {
 
-      $scope.Model = 1;
 
       var category_query = function(){
         Category.query().then(function(categories){
@@ -33,14 +32,14 @@
       category_query();
 
       $scope.Config = {
-        create: true,
+        create: false,
         valueField: 'id',
         labelField: 'name',
         delimiter: '|',
         placeholder: 'Pick something',
-        onInitialize: function(selectize){
-          // receives the selectize object as an argument
-        }
+        //onInitialize: function(selectize){
+        //
+        //}
         // maxItems: 1
       };
 
