@@ -6,7 +6,6 @@
     .controller('AdsNewController', function($rootScope, $scope, $state, $stateParams, $auth, $location, Ad, CurrentUser) {
 
       $scope.new = function(){
-        if (!CurrentUser) {
           $scope.Ad = new Ad();
           if (!$scope.title || $scope.title === '') {
             return;
@@ -30,8 +29,7 @@
           }).catch(function () {
             alert("Operation failed");
           });
-        }
-        $location.path('/ads');
+          $location.path('/ads');
       };
 
     });

@@ -19,7 +19,10 @@
 
     $authProvider.configure({
       apiUrl: 'http://localhost:3030/api',
-      storage: 'cookies'
+      storage: 'cookies',
+      authProviderPaths: {
+        facebook: 'api/auth/facebook'
+      }
     });
   }
 

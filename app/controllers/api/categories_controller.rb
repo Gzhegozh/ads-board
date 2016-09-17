@@ -1,4 +1,4 @@
-class Api::CategoriesController < ApplicationController
+class Api::CategoriesController < ApiController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_current_user
 
