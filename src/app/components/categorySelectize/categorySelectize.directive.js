@@ -31,22 +31,16 @@
         onInitialize: function(selectize){
 
           Category.query().then(function(categories){
-            categories.forEach(function(category){
-
+            categories.forEach(function(category) {
               selectize.addOption(category);
-
-              Ad.get($stateParams.id).then(function(ad){
-                ad.categories.forEach(function(ad_category){
-
-                  if (category.id == ad_category.id){
-                    selectize.addItem(category.id);
-
-                  }
-
-                });
-              });
-
             });
+
+          Ad.get($stateParams.id).then(function(ad){
+            ad.categories.forEach(function(ad_category){
+                selectize.addItem(ad_category.id);
+              })
+            });
+
           });
         }
       };
