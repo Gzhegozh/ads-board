@@ -43,6 +43,7 @@ group :development, :test do
   gem 'byebug'
   gem 'better_errors'
   gem 'cancancan'
+  gem 'activeadmin'
   gem 'rolify'
   gem 'angular_rails_csrf'
   gem 'factory_girl_rails'
