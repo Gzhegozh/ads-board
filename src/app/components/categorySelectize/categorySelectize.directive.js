@@ -22,25 +22,33 @@
     /** @ngInject */
     function SelectizeController($scope, $rootScope, $auth, $stateParams, Ad, Category) {
 
-
-      var category_query = function(){
-        Category.query().then(function(categories){
-          $scope.Options = categories;
-        });
-      };
-
-      category_query();
-
       $scope.Config = {
-        create: false,
+        create: true,
         valueField: 'id',
         labelField: 'name',
         delimiter: '|',
         placeholder: 'Pick something',
-        //onInitialize: function(selectize){
-        //
-        //}
-        // maxItems: 1
+        onInitialize: function(selectize){
+
+          Category.query().then(function(categories){
+            categories.forEach(function(category){
+
+              selectize.addOption(category);
+
+              Ad.get($stateParams.id).then(function(ad){
+                ad.categories.forEach(function(ad_category){
+
+                  if (category.id == ad_category.id){
+                    selectize.addItem(category.id);
+
+                  }
+
+                });
+              });
+
+            });
+          });
+        }
       };
 
     }
