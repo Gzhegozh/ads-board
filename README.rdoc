@@ -1,28 +1,20 @@
-== README
+Rails version 4.2.4
+Ruby version 2.3.0
+PostgreSQL version 9.3.10
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Run rails on port 3030:
+rails s -p 3030
 
-Things you may want to cover:
+For the Angular frontend, I'm using a Yeoman generator and Gulp.
+To install It run:
 
-* Ruby version
+npm install -g yo bower gulp generator-gulp-angular
 
-* System dependencies
+From app directory run:
 
-* Configuration
+npm install
+bower install
 
-* Database creation
+Then run:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+gulp serve
