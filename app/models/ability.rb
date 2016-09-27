@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
 
+    user ||= User.new
     # Define abilities for the passed in user here. For example:
     #
     if user.nil?

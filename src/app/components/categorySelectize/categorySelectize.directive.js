@@ -36,10 +36,13 @@
             });
 
           Ad.get($stateParams.id).then(function(ad){
-            ad.categories.forEach(function(ad_category){
+            if (ad.categories) {
+              ad.categories.forEach(function (ad_category) {
                 selectize.addItem(ad_category.id);
               })
+            }
             });
+
 
           });
         }

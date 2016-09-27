@@ -1,6 +1,6 @@
 class Api::CategoriesController < ApiController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_current_user
+  before_action :authenticate_user!
 
   # GET /categories
   # GET /categories.json

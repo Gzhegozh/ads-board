@@ -10,7 +10,8 @@
           };
 
         $rootScope.$on('auth:registration-email-success', function(ev, user) {
-            $location.path('/ads');
+          $location.path('/ads');
+          window.location.reload();
         });
 
         $rootScope.$on('auth:registration-email-error', function(ev, reason) {
