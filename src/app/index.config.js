@@ -18,7 +18,7 @@
     toastrConfig.progressBar = true;
 
     $authProvider.configure({
-      apiUrl: 'http://localhost:3030/api',
+      apiUrl: 'http://localhost:3000/api',
       storage: 'cookies',
       facebook: {
         clientId: '1102903999763763',
