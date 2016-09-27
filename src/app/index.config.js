@@ -18,12 +18,12 @@
     toastrConfig.progressBar = true;
 
     $authProvider.configure({
-      apiUrl: '/api',
+      apiUrl: 'https://still-island-16001.herokuapp.com/api',
       storage: 'cookies',
       facebook: {
         clientId: '1102903999763763',
         name: 'facebook',
-        url: '/auth/facebook',
+        url: 'https://still-island-16001.herokuapp.com/api/auth/facebook',
         authorizationEndpoint: 'https://www.facebook.com/v2.5/dialog/oauth',
         redirectUri: window.location.origin + '/',
         requiredUrlParams: ['display', 'scope'],
