@@ -23,4 +23,3 @@ vendor/
 
 # Ignore application configuration
 /config/application.yml
-/public
