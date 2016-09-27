@@ -17,15 +17,19 @@ ActiveAdmin.register Category do
 
     def destroy
       @category = Category.find(params[:id])
-      redirect_to admin_categories_path, :alert => 'Cannot delete default category' if params[:id].to_i == 1
-      @ads = Ad.all.includes(:category)
-      @ads.each do |ad|
-        if ad.category.include? @category
-          ad.category << Category.find(1)
+      if params[:id].to_i == 1
+        redirect_to admin_categories_path, :alert => 'Cannot delete default category'
+      else
+        @ads = Ad.all.includes(:category)
+        @default_category = Category.find(1)
+        @ads.each do |ad|
+          if (ad.category.include? @category) && !(ad.category.include? @default_category)
+            ad.category << @default_category
+          end
         end
+        @category.destroy
+        redirect_to admin_categories_path, :notice => 'Successfully deleted'
       end
-      @category.destroy
-      redirect_to admin_categories_path, :notice => 'Successfully deleted'
     end
 
     private
