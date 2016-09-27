@@ -10,6 +10,7 @@ var browserSyncSpa = require('browser-sync-spa');
 var util = require('util');
 
 var proxyMiddleware = require('http-proxy-middleware');
+var exec = require('child_process').exec;
 
 function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
@@ -26,7 +27,7 @@ function browserSyncInit(baseDir, browser) {
     routes: routes
   };
 
-  server.middleware = proxyMiddleware('/api', {target: 'http://localhost:3030', changeOrigin: true});
+  server.middleware = proxyMiddleware('/api', {target: 'http://localhost:3000', changeOrigin: true});
   /*
    * You can add a proxy to your backend by uncommenting the line below.
    * You just have to configure a context which will we redirected and the target url.
@@ -37,6 +38,7 @@ function browserSyncInit(baseDir, browser) {
   // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
 
   browserSync.instance = browserSync.init({
+    port: 9000,
     startPath: '/',
     server: server,
     browser: browser
@@ -50,6 +52,12 @@ browserSync.use(browserSyncSpa({
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
 });
+
+gulp.task('rails', function() {
+  exec("rails s");
+});
+
+gulp.task('serve:full-stack', ['rails', 'serve']);
 
 gulp.task('serve:dist', ['build'], function () {
   browserSyncInit(conf.paths.dist);
