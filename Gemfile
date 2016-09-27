@@ -42,12 +42,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'better_errors'
-  gem 'cancancan'
-  gem 'activeadmin'
-  gem 'rolify'
-  gem 'angular_rails_csrf'
-  gem 'factory_girl_rails'
-  gem 'faker'
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'meta_request'
@@ -57,6 +51,13 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
 end
+
+gem 'cancancan'
+gem 'activeadmin'
+gem 'rolify'
+gem 'angular_rails_csrf'
+gem 'factory_girl_rails'
+gem 'faker'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
