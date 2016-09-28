@@ -23,7 +23,7 @@
     function SelectizeController($scope, $rootScope, $auth, $stateParams, Ad, Category) {
 
       $scope.Config = {
-        create: true,
+        create: false,
         valueField: 'id',
         labelField: 'name',
         delimiter: '|',
