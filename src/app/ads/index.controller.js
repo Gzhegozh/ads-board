@@ -13,6 +13,7 @@
 
           $scope.authenticate = function(provider) {
             $auth.authenticate(provider);
+            $location.url($location.path());
           };
 
           $scope.submitLogin=function(loginForm){
