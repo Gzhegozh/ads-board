@@ -21,4 +21,6 @@ ActiveAdmin.register Ad do
     f.actions         # adds the 'Submit' and 'Cancel' buttons
   end
 
+  permit_params :status
+
 end
